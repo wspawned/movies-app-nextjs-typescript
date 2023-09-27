@@ -8,7 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 function SideMenu() {
 
-  const genres = useAppSelector((state: RootState) => state.general.genres);
+  const {genres, genresIsLoading, genresError} = useAppSelector((state: RootState) => state.general);
   const staticCategories = useAppSelector((state: RootState) => state.general.staticCategories);
 
   const dispatch = useAppDispatch();
@@ -17,6 +17,20 @@ function SideMenu() {
   },[dispatch])
 
   const router = useRouter();
+
+  const SideMenuItemsLoadingSkeleton = ({ n }: { n: number }) => {
+    const elementsArray = new Array(n).fill("X");
+    return(
+      <div className='animate-pulse'>
+      <div className='flex flex-col gap-6 p-4'>
+        <h2 className='text-rose-300 text-xl'>Loading...</h2>
+        {
+          elementsArray.map((elm) => <div className='bg-gray-300 h-4 rounded-md'></div>)
+        }
+      </div>
+    </div>
+    )
+  }
 
   return (
     <div className="hidden md:block flex-col h-screen bg-neutral-800 w-64 overflow-hidden">
@@ -37,7 +51,7 @@ function SideMenu() {
       </style>
 
       <div className='overflow-auto'>
-        {staticCategories &&
+        {genres.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
             <h2 className='text-rose-300 text-xl' >Discover</h2>
             {staticCategories.map((category) => {
@@ -53,9 +67,11 @@ function SideMenu() {
               );
             })}
           </div>
+          :
+          <SideMenuItemsLoadingSkeleton n={3} />
         }
 
-        {genres &&
+        {genres.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
             <h2 className='text-rose-300 text-xl' >Genres</h2>
             {genres.map((genre) => {
@@ -71,6 +87,8 @@ function SideMenu() {
               );
             })}
           </div>
+          :
+          <SideMenuItemsLoadingSkeleton n={16} />
         }
       </div>
       
@@ -79,3 +97,12 @@ function SideMenu() {
 }
 
 export default SideMenu;
+
+{/* <div className='animate-pulse'>
+      <div className='flex flex-col gap-2 p-4'>
+        <h2 className='text-rose-300 text-xl'>Loading...</h2>
+        <div className='bg-gray-300 h-4 rounded-md'></div>
+        <div className='bg-gray-300 h-4 rounded-md'></div>
+        <div className='bg-gray-300 h-4 rounded-md'></div>
+      </div>
+    </div> */}

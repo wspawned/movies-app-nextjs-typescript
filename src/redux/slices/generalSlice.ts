@@ -13,6 +13,8 @@ type Genre = {
 interface GeneralState  {
   staticCategories: StaticMovieCategory[];
   genres: Genre[];
+  genresIsLoading: boolean;
+  genresError: null | any;
 }
 
 export const STATIC_MOVIE_CATEGORIES:StaticMovieCategory[] = [
@@ -24,6 +26,8 @@ export const STATIC_MOVIE_CATEGORIES:StaticMovieCategory[] = [
 const INITIAL_STATE: GeneralState = {
   staticCategories: STATIC_MOVIE_CATEGORIES,
   genres: [],
+  genresIsLoading: false,
+  genresError: null,
 };
 
 export const generalSlice = createSlice({
@@ -35,8 +39,20 @@ export const generalSlice = createSlice({
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder
+    .addCase(getGenres.pending, (state, action) => {
+      state.genres = [];
+      state.genresIsLoading = true;
+      state.genresError = null;
+    })
     .addCase(getGenres.fulfilled, (state, action) => {
-      state.genres = action.payload.genres
+      state.genres = action.payload.genres;
+      state.genresIsLoading = false;
+      state.genresError = null;
+    })
+    .addCase(getGenres.rejected, (state, action) => {
+      state.genres = [];
+      state.genresIsLoading = false;
+      state.genresError = action.payload;
     })
   },
 })
