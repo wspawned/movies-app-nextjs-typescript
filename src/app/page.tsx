@@ -27,9 +27,9 @@ const Home = () => {
   return (
     <div className='flex flex-col justify-center items-center w-full gap-4 p-4'>
       
-      <div className='text-3xl my-4' >
-        <h1>{paramsCategoryName.toUpperCase()} MOVIES</h1>
-      </div>
+      
+        <h1 className='text-3xl my-4' >{paramsCategoryName.toUpperCase()} MOVIES</h1>
+      
 
       <MovieList movies={movieList.movies} />
 

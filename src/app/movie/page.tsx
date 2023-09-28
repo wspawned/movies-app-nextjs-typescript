@@ -1,7 +1,35 @@
-const MoviePage = () => {
-    return(
-      <div className="flex h-screen w-screen bg-teal-100 text-center" >Movie Page</div>
-    )
-}
+"use client"
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getMovie } from "../../redux/actions/getMovie";
+import { getRecommendedMovies } from "../../redux/actions/getRecommendedMovies";
+import { getCredits } from "../../redux/actions/getCredits";
+import { useSearchParams } from 'next/navigation';
+import RecommendedMovieList from '@/components/RecommendedMovieList/RecommendedMovieList';
+import MovieInfo from '@/components/MovieInfo/MovieInfo';
 
-export default MoviePage;
+const Movie = () => {
+
+  const searchParams = useSearchParams();
+  const id = Number(searchParams.get("id"));
+
+  const dispatch = useAppDispatch();
+  const recommendedMovies = useAppSelector((state) => state.movie.recommendedMovies );
+  
+  useEffect(  () => {
+    dispatch( getMovie(id) );
+    dispatch( getRecommendedMovies(id) );
+    dispatch( getCredits(id) );
+  },[dispatch, id ])
+
+
+  return (
+    <div className="flex flex-col justify-center items-center w-full gap-4 ">
+      
+      <MovieInfo/>
+      <RecommendedMovieList movies  ={recommendedMovies} />
+    </div>
+  );
+};
+
+export default Movie;

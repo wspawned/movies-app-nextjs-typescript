@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../redux/store';
 import { getGenres } from '@/redux/actions/getGenres';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 function SideMenu() {
@@ -25,7 +26,7 @@ function SideMenu() {
       <div className='flex flex-col gap-6 p-4'>
         <h2 className='text-rose-300 text-xl'>Loading...</h2>
         {
-          elementsArray.map((elm) => <div className='bg-gray-300 h-4 rounded-md'></div>)
+          elementsArray.map((element, index) => <div key={index} className='bg-gray-300 h-4 rounded-md'></div>)
         }
       </div>
     </div>
@@ -56,14 +57,16 @@ function SideMenu() {
             <h2 className='text-rose-300 text-xl' >Discover</h2>
             {staticCategories.map((category) => {
               return (
+                <Link
+                href={`/?category=${category.name}&id=${category.id}&page=1`}
+                passHref
+                >
                 <div className='text-slate-200 hover:text-rose-300 hover:bg-neutral-400 hover:cursor-pointer p-2 rounded-md'
-                  onClick={() => {
-                    router.push(`/?category=${category.name}&id=${category.id}&page=1`);
-                  }}
                   key={category.id}
                 >
                   {category.name}
                 </div>
+                </Link>
               );
             })}
           </div>
@@ -76,14 +79,16 @@ function SideMenu() {
             <h2 className='text-rose-300 text-xl' >Genres</h2>
             {genres.map((genre) => {
               return (
+                <Link
+                href={`/?category=${genre.name}&id=${genre.id}&page=1`}
+                passHref
+                >
                 <div className='text-slate-200 hover:text-rose-300 hover:bg-neutral-400 hover:cursor-pointer p-2 rounded-md'
-                  onClick={() => {
-                    router.push(`/?category=${genre.name}&id=${genre.id}&page=1`);
-                  }}
                   key={genre.id}
                 >
                   {genre.name}
                 </div>
+                </Link>
               );
             })}
           </div>

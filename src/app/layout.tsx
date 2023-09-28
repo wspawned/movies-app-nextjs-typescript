@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="flex flex-row min-h-screen w-screen bg-neutral-600" >
+          <div className="flex flex-row min-h-screen w-screen bg-neutral-600 " >
           <SideMenu/>
           {children}
           </div>
