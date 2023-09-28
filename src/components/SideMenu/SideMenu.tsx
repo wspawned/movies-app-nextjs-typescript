@@ -60,9 +60,10 @@ function SideMenu() {
                 <Link
                 href={`/?category=${category.name}&id=${category.id}&page=1`}
                 passHref
+                key={category.id}
                 >
                 <div className='text-slate-200 hover:text-rose-300 hover:bg-neutral-400 hover:cursor-pointer p-2 rounded-md'
-                  key={category.id}
+                  
                 >
                   {category.name}
                 </div>
@@ -82,9 +83,10 @@ function SideMenu() {
                 <Link
                 href={`/?category=${genre.name}&id=${genre.id}&page=1`}
                 passHref
+                key={genre.id}
                 >
                 <div className='text-slate-200 hover:text-rose-300 hover:bg-neutral-400 hover:cursor-pointer p-2 rounded-md'
-                  key={genre.id}
+                  
                 >
                   {genre.name}
                 </div>

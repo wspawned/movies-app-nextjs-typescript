@@ -48,10 +48,11 @@ const MovieInfo = () => {
                 <Link
                 href={`/?category=${genre.name}&id=${genre.id}&page=1`}
                 passHref
+                key={genre.id}
                 >
                 <p
                 className="text-slate-200 bg-emerald-700 rounded-md py-1 px-2"
-                key={genre.id}
+                
                 >{genre.name}</p>
                 </Link>
               );
