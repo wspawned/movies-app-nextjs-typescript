@@ -29,13 +29,14 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col w-full" >
-      
+    <>
+
       <div className="block md:hidden absolute "
       onClick={()=>{setShowMobileMenu(true)}}
       >
         <div className="mt-2 ml-2 p-1 border-b-teal-100 border-2 rounded-md" ><RxHamburgerMenu size={15} color="white" /></div>
       </div>
+      
 
     {
       movies.length === 0 
@@ -87,7 +88,7 @@ const Home = () => {
 
     </div>
     }
-    </div>
+    </>
   );
 };
 
