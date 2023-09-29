@@ -9,20 +9,29 @@ export const getGenreMovies = createAsyncThunk(
   async ({paramsId, paramsPage}:{paramsId:string, paramsPage:number} ) => {
     
     if(staticIds.includes(paramsId)) {
-      const res = await tmdbAPI.get(`/3/movie/${paramsId}`, {
-        params: {
-          page: paramsPage,
-        }
-      });
-      return res.data.results;
+      try {
+        const res = await tmdbAPI.get(`/3/movie/${paramsId}`, {
+          params: {
+            page: paramsPage,
+          }
+        });
+        return res.data;
+      } catch(error) {
+        return error;
+      }
+      
     } else {
-      const res = await tmdbAPI.get("/3/discover/movie/", {
-        params: {
-          with_genres: paramsId,
-          page: paramsPage,
-        }
-      });
-      return res.data.results;
+      try{
+        const res = await tmdbAPI.get("/3/discover/movie/", {
+          params: {
+            with_genres: paramsId,
+            page: paramsPage,
+          }
+        });
+        return res.data;
+      } catch(error) {
+        return error;
+      }
     }
   }
 );
