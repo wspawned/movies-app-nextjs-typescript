@@ -8,6 +8,8 @@ Uygulama hazırlanırken componentlarda **mobil responsive** yapıya dikkat edil
 
 Kullanılan sabit değerler environment bazlı saklanmaktadır.
 
+App'i hazırlamak için TheMovieDB.org'a ait api kullanılmıştır. [TMDB API](https://developer.themoviedb.org/docs)
+
 Projenin Vercel üzerinden deploy edilmiş haline linkten ulaşılabilir.
 
 [Demo Linki](https://movies-app-nextjs-typescript-qkmb.vercel.app/)
