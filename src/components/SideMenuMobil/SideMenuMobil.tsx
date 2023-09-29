@@ -51,7 +51,7 @@ function SideMenuMobil() {
     `}
       </style>
 
-      <div className='overflow-auto'>
+      <div className='overflow-auto h-full'>
         {genres.length > 0 ?
           <div className='flex flex-col p-2 gap-1  mt-5' >
             <h2 className='text-rose-300 text-base font-bold drop-shadow-xl' >Discover</h2>
