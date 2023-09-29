@@ -35,7 +35,7 @@ const MovieInfo = () => {
       <div className="flex flex-col w-full h-full gap-4">
         
         <div className="flex flex-col gap-2 text-slate-200 pb-2 border-b-orange-400 border-b-2" >
-          <h1 className='text-3xl font-bold' >{`  ${title?.toUpperCase()}  `}</h1>
+          <h1 className='text-3xl font-bold drop-shadow-lg' >{`  ${title?.toUpperCase()}  `}</h1>
           <p className='text-2xl' >{`  ${tagline?.toUpperCase()}  `}</p>
 
           <p>{`  ${runtime} min / ${release_date}  `}</p>

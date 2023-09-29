@@ -24,7 +24,7 @@ function SideMenu() {
     return(
       <div className='animate-pulse'>
       <div className='flex flex-col gap-6 p-4'>
-        <h2 className='text-rose-300 text-xl'>Loading...</h2>
+        <h2 className='text-rose-300 text-xl '>Loading...</h2>
         {
           elementsArray.map((element, index) => <div key={index} className='bg-gray-300 h-4 rounded-md'></div>)
         }
@@ -54,7 +54,7 @@ function SideMenu() {
       <div className='overflow-auto'>
         {genres.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
-            <h2 className='text-rose-300 text-xl font-bold' >Discover</h2>
+            <h2 className='text-rose-300 text-xl font-bold drop-shadow-xl' >Discover</h2>
             {staticCategories.map((category) => {
               return (
                 <Link
@@ -77,7 +77,7 @@ function SideMenu() {
 
         {genres.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
-            <h2 className='text-rose-300 text-xl font-bold' >Genres</h2>
+            <h2 className='text-rose-300 text-xl font-bold drop-shadow-xl' >Genres</h2>
             {genres.map((genre) => {
               return (
                 <Link

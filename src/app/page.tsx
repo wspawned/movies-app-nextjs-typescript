@@ -38,10 +38,8 @@ const Home = () => {
       </div> 
       :
       <div className='flex flex-col justify-center items-center w-full gap-4 p-4'>
-        
-        <h1 className='text-3xl my-4' >{paramsCategoryName.toUpperCase()} MOVIES</h1>
 
-      <MovieList movies={movies} />
+      <MovieList movies={movies} title={`${paramsCategoryName.toUpperCase()} MOVIES`} />
 
       <div className='flex w-full justify-between py-4 px-2 md:px-8'>
           {paramsPage > 1 ? (
