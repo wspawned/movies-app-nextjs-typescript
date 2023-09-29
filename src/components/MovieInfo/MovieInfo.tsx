@@ -16,13 +16,12 @@ const MovieInfo = () => {
   const info = movie.movieInfo as MovieInfoType;
   
   const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path, videos } = info;
-  const IMDB_base_url = "https://www.imdb.com/title/";
-  const base_url:string = 'https://image.tmdb.org/t/p/';
+  const IMDB_base_url = process.env.NEXT_PUBLIC_IMDB_BASE_URL as string;
+  const base_url = process.env.NEXT_PUBLIC_TMDB_IMG_BASE_URL as string;
 
   return (
     <>
     <div className="flex flex-col md:flex-row w-full justify-center items-center pb-6 pt-0 md:pt-32 gap-12">
-    {/* <div className="flex flex-col md:flex-row w-full justify-center items-center px-0 md:px-36 pb-6 pt-0 md:pt-32 gap-12"> */}
 
       <div className="flex w-full md:w-1/3" >
         <Image
@@ -84,13 +83,17 @@ const MovieInfo = () => {
               href={`${homepage}`}
               passHref
             >
-              <button className="text-slate-300 font-bold hover:text-black hover:decoration-orange-400 decoration-2 hover:cursor-pointer underline underline-offset-4 px-4 py-2 text-lg">Website</button>
+              <button className="text-slate-300 font-bold hover:text-black hover:decoration-orange-400 decoration-2 hover:cursor-pointer underline underline-offset-4 px-4 py-2 text-lg">
+              Website
+              </button>
             </Link>
             <Link
               href={`${IMDB_base_url + imdb_id}`}
               passHref
             >
-              <button className="text-slate-300 font-bold hover:text-black hover:decoration-orange-400 decoration-2 hover:cursor-pointer underline underline-offset-4 px-4 py-2 text-lg"> IMDB</button></Link>
+              <button className="text-slate-300 font-bold hover:text-black hover:decoration-orange-400 decoration-2 hover:cursor-pointer underline underline-offset-4 px-4 py-2 text-lg">
+              IMDB
+              </button></Link>
             <Trailer videos={videos?.results} />
           </div>
     </>

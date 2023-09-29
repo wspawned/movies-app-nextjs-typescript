@@ -12,7 +12,7 @@ const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType}> = ( {
   const dispatch = useAppDispatch();
   const router = useRouter();
   
-  const base_url = 'https://image.tmdb.org/t/p/';
+  const base_url = process.env.NEXT_PUBLIC_TMDB_IMG_BASE_URL;
   const { title, poster_path, vote_average, vote_count, id } = movie;
 
   const W342H513 = {

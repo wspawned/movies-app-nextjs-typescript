@@ -104,12 +104,3 @@ function SideMenu() {
 }
 
 export default SideMenu;
-
-{/* <div className='animate-pulse'>
-      <div className='flex flex-col gap-2 p-4'>
-        <h2 className='text-rose-300 text-xl'>Loading...</h2>
-        <div className='bg-gray-300 h-4 rounded-md'></div>
-        <div className='bg-gray-300 h-4 rounded-md'></div>
-        <div className='bg-gray-300 h-4 rounded-md'></div>
-      </div>
-    </div> */}
