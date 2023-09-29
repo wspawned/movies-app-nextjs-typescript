@@ -1,6 +1,8 @@
 "use client";
 
 import MovieList from "@/components/MovieList/MovieList";
+import SideMenuMobil from "@/components/SideMenuMobil/SideMenuMobil";
+import SideMenuMobilModal from "@/components/SideMenuMobil/SideMenuMobilModal/SideMenuMobilModal";
 import { getGenreMovies } from "@/redux/actions/getGenreMovies";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
 import { STATIC_MOVIE_CATEGORIES } from "@/redux/slices/generalSlice";
@@ -26,16 +28,26 @@ const Home = () => {
   }, [searchParams, dispatch ] )
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const openModal = () => {setShowMobileMenu(true)};
+  const closeModal = () => {setShowMobileMenu(false)};
 
 
   return (
     <>
 
       <div className="block md:hidden absolute "
-      onClick={()=>{setShowMobileMenu(true)}}
+      onClick={()=>{openModal()}}
       >
         <div className="mt-2 ml-2 p-1 border-b-teal-100 border-2 rounded-md" ><RxHamburgerMenu size={15} color="white" /></div>
       </div>
+
+      {
+        showMobileMenu ?
+        <SideMenuMobilModal closeModal={closeModal}>
+          <SideMenuMobil/>
+        </SideMenuMobilModal> :
+        null
+      }
       
 
     {

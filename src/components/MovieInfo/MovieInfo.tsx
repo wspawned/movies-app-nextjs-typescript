@@ -35,14 +35,14 @@ const MovieInfo = () => {
       <div className="flex flex-col w-full h-full gap-4">
         
         <div className="flex flex-col gap-2 text-slate-200 pb-2 border-b-orange-400 border-b-2" >
-          <h1 className='text-3xl font-bold drop-shadow-lg' >{`  ${title?.toUpperCase()}  `}</h1>
-          <p className='text-2xl' >{`  ${tagline?.toUpperCase()}  `}</p>
+          <h1 className='text-xl md:text-3xl font-bold drop-shadow-lg' >{`  ${title?.toUpperCase()}  `}</h1>
+          <p className='text-base md:text-2xl' >{`  ${tagline?.toUpperCase()}  `}</p>
 
           <p>{`  ${runtime} min / ${release_date}  `}</p>
         </div>
 
         <div className="flex flex-col gap-2 text-slate-200">
-          <h3 className='text-lg font-bold' >GENRES</h3>
+          <h3 className='text-base md:text-lg font-bold' >GENRES</h3>
           <div className="flex gap-6" >
           {genres
             ? genres.map((genre: any) => {
@@ -64,7 +64,7 @@ const MovieInfo = () => {
         </div>
 
         <div className="flex flex-col w-full gap-2 text-slate-200">
-        <h3 className='text-lg font-bold' >ABOUT</h3>
+        <h3 className='text-base md:text-lg font-bold' >ABOUT</h3>
         <p >{`  ${overview}  `}</p>
 
         

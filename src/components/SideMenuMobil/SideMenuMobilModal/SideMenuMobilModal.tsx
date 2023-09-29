@@ -4,7 +4,7 @@ import React, { PropsWithChildren, useEffect, useRef } from "react"
 import { createPortal } from "react-dom";
 
 
-const TrailerModal:React.FC <PropsWithChildren & {closeModal: () => void} > = ({ children, closeModal }) => {
+const SideMenuMobilModal:React.FC <PropsWithChildren & {closeModal: () => void} > = ({ children, closeModal }) => {
 
   const elRef = useRef <HTMLElement | null> ()  ;
 
@@ -22,7 +22,7 @@ const TrailerModal:React.FC <PropsWithChildren & {closeModal: () => void} > = ({
   }, [])  ;
 
   return createPortal(
-    <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-50 flex justify-center items-center flex-col'
+    <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-50 flex justify-start items-start flex-col'
       onClick={() => closeModal()}
     >
       {children}
@@ -31,4 +31,4 @@ const TrailerModal:React.FC <PropsWithChildren & {closeModal: () => void} > = ({
   );
 };
 
-export default TrailerModal;
+export default SideMenuMobilModal;
