@@ -7,7 +7,8 @@ import { STATIC_MOVIE_CATEGORIES } from "@/redux/slices/generalSlice";
 import { RootState } from "@/redux/store";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Home = () => {
   
@@ -24,11 +25,18 @@ const Home = () => {
       dispatch(getGenreMovies( {paramsId, paramsPage} ));
   }, [searchParams, dispatch ] )
 
-  useEffect(()=>{console.log(moviesIsLoading)},[moviesIsLoading])
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
 
   return (
-    <>
+    <div className="flex flex-col w-full" >
+      
+      <div className="block md:hidden absolute "
+      onClick={()=>{setShowMobileMenu(true)}}
+      >
+        <div className="mt-2 ml-2 p-1 border-b-teal-100 border-2 rounded-md" ><RxHamburgerMenu size={15} color="white" /></div>
+      </div>
+
     {
       movies.length === 0 
       ?
@@ -79,7 +87,7 @@ const Home = () => {
 
     </div>
     }
-    </>
+    </div>
   );
 };
 
