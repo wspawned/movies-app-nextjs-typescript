@@ -31,11 +31,12 @@ const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType, key:nu
           dispatch(resetMovie());
         }}
       >
-        <p className="h-8 px-2 overflow-hidden whitespace-nowrap overflow-ellipsis">
+        <p className="h-8 px-2 w-full overflow-hidden whitespace-nowrap overflow-ellipsis">
           {title}
         </p>
 
         <Image
+        className='rounded-2xl'
           src={`${base_url}w${W342H513.WIDTH}${poster_path}`}
           alt={`${title} Poster`}
           width={342}

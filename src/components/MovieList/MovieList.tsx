@@ -7,7 +7,7 @@ import MovieListItem from './MovieListItem/MovieListItem';
 
 const MovieList:React.FC<{movies: GenreMoviesType[] | RecommendedMovieType[] | PersonMovieType[] }> = ( {movies} ) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2">
     
     {movies.map((movie, index) => {
       return (

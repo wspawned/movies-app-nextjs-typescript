@@ -20,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div id='modal-trailer'></div>
         <Providers>
-          <div className="flex flex-row min-h-screen w-screen bg-neutral-600 " >
+          <div className="flex flex-row min-h-screen max-w-screen bg-neutral-600 " >
           <SideMenu/>
           {children}
           </div>
