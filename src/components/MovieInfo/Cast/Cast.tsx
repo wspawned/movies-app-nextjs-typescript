@@ -17,6 +17,7 @@ const Cast:React.FC<{cast:CastType[],base_url:string}> = ({cast,base_url}) => {
         src={`${base_url}w185${person.profile_path}`}
         alt={person.name}
         id={person.id}
+        key={person.id}
         />
       )})}
       </div>

@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType, key:number}> = ( {movie, key} ) => {
+const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType}> = ( {movie} ) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   
@@ -26,7 +26,6 @@ const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType, key:nu
       passHref
     >
       <div className="flex flex-col justify-center items-center text-center transform scale-100 hover:scale-105 transition-transform ease-in-out duration-300 "
-        key={key}
         onClick={() => {
           dispatch(resetMovie());
         }}
