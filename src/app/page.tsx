@@ -51,7 +51,7 @@ const Home = () => {
       
 
     {
-      movies.length === 0 
+      movies?.length === 0 
       ?
       <div className="flex flex-col w-screen h-screen justify-center items-center text-center" >
         <h2 className='text-rose-300 text-xl' >Loading...</h2>

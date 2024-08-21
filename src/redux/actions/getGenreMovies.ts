@@ -8,7 +8,19 @@ export const getGenreMovies = createAsyncThunk(
   "genreMovies/get",
   async ({paramsId, paramsPage}:{paramsId:string, paramsPage:number} ) => {
     
-    if(staticIds.includes(paramsId)) {
+    if(paramsId === "Popular") {
+      try {
+        const res = await tmdbAPI.get("/3/discover/movie", {
+          params: {
+            page: paramsPage,
+            sort_by: "popularity.desc",
+          }
+        });
+        return res.data;
+      } catch(error) {
+        return error;
+      }
+    } else if(staticIds.includes(paramsId)) {
       try {
         const res = await tmdbAPI.get(`/3/movie/${paramsId}`, {
           params: {
@@ -22,7 +34,7 @@ export const getGenreMovies = createAsyncThunk(
       
     } else {
       try{
-        const res = await tmdbAPI.get("/3/discover/movie/", {
+        const res = await tmdbAPI.get("/3/discover/movie", {
           params: {
             with_genres: paramsId,
             page: paramsPage,

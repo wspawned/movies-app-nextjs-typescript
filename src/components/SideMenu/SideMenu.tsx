@@ -52,7 +52,7 @@ function SideMenu() {
       </style>
 
       <div className='overflow-auto h-full'>
-        {genres.length > 0 ?
+        {genres?.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
             <h2 className='text-rose-300 text-xl font-bold drop-shadow-xl' >Discover</h2>
             {staticCategories.map((category) => {
@@ -75,7 +75,7 @@ function SideMenu() {
           <SideMenuItemsLoadingSkeleton n={3} />
         }
 
-        {genres.length > 0 ?
+        {genres?.length > 0 ?
           <div className='flex flex-col gap-2 p-4' >
             <h2 className='text-rose-300 text-xl font-bold drop-shadow-xl' >Genres</h2>
             {genres.map((genre) => {
