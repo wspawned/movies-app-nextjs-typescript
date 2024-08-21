@@ -12,7 +12,7 @@ App'i hazırlamak için TheMovieDB.org'a ait api kullanılmıştır. [TMDB API](
 
 Projenin Vercel üzerinden deploy edilmiş haline linkten ulaşılabilir.
 
-[Demo Linki](https://movies-app-nextjs-typescript-qkmb.vercel.app/)
+[Demo Linki](https://main.d3jpt076d3o4lp.amplifyapp.com/)
 
 ![image](https://github.com/wspawned/movies-app-nextjs-typescript/assets/80424496/1988265b-822b-4d8c-b3d1-17d062f72277)
 
